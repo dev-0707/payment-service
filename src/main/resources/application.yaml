@@ -1,0 +1,19 @@
+server:
+  port: 8070
+  servlet:
+    contextPath: /payment-service
+    
+spring:
+  application-name: payment-service
+
+  cloud:
+     gcp:
+        trace:
+           enabled: false
+           project-id: project-us-350-08
+  sleuth:
+     sampler:
+        probability: 1.0
+     web:
+        skipPattern: (^cleanup.*|.+favicon.*)
+  zipkin.service.name: payment-service        

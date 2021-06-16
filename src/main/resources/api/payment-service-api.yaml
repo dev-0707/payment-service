@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+   title: Product Service - REST API
+   description: Product - REST API
+   version: 1.0.0
+   contact: {}
+servers:
+-  url: http://localhost:8080/api/v1
+paths:
+#### payments ####
+   /check:
+      post:
+         operationId: check
+         responses:
+            '200':
+               description: Payment Check
+            '400':
+               description: Bad request
+               content:
+                  application/json:
+                     schema:
+                          $ref: '#/components/schemas/Error'
+            '500':
+               description: Server error
+               content:
+                  application/json:
+                     schema:
+                          $ref: '#/components/schemas/Error'
+            '401':
+               description: Not Authenticated
+               content:
+                  application/json:
+                     schema:
+                          $ref: '#/components/schemas/Error'
+         tags:
+         - payment
+components:
+   links: {}
+   callbacks: {}
+   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - codice

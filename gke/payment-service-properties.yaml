@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-service-properties
+  labels:
+    app: payment-service
+data:
+  application.properties: |
+    server.servlet.contextPath = /payment-service
+    server.port = 8080
+    spring.jackson.date-format = yyyy-MM-dd
+    spring.application-name = payment-service
