@@ -16,4 +16,12 @@ spring:
         probability: 1.0
      web:
         skipPattern: (^cleanup.*|.+favicon.*)
-  zipkin.service.name: payment-service        
+  zipkin.service.name: payment-service
+  
+opentracing:
+  jaeger:
+    enabled: true
+    udp-sender:
+      host: localhost
+      port: 6831
+    service-name: payment-service  
